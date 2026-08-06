@@ -9,33 +9,33 @@
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet" />
 <style>
   :root {
-    /* Light theme colors */
-    --bg-color: #fff;
-    --text-color: #222;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --hover-shadow-color: rgba(0, 0, 0, 0.2);
-    --filter-tag-bg: #fff;
-    --filter-tag-hover: #e0f7fa;
-    --figure-bg: #fff;
-    --figure-shadow: rgba(0, 0, 0, 0.1);
-    --caption-color: #555;
-    --blue-color: #4a90e2;
-    --primary-color: #ff7f50;
-    --secondary-color: #ffa500;
+    /* Light theme colors - Blue scheme */
+    --bg-color: #e0f7fa; /* Light blue background */
+    --text-color: #003366; /* Dark blue text */
+    --shadow-color: rgba(0, 0, 50, 0.1);
+    --hover-shadow-color: rgba(0, 0, 50, 0.2);
+    --filter-tag-bg: #b2ebf2; /* Light blue tags */
+    --filter-tag-hover: #81d4fa;
+    --figure-bg: #ffffff; /* White for figures */
+    --figure-shadow: rgba(0, 0, 50, 0.1);
+    --caption-color: #005577; /* Darker blue captions */
+    --blue-color: #3399ff; /* Blue tone for buttons/links */
+    --primary-color: #0288d1; /* Bright blue */
+    --secondary-color: #81d4fa; /* Light blue accent */
   }
   body.dark-mode {
-    --bg-color: #222;
-    --text-color: #eee;
-    --shadow-color: rgba(0, 0, 0, 0.6);
-    --hover-shadow-color: rgba(0, 0, 0, 0.8);
-    --filter-tag-bg: #333;
-    --filter-tag-hover: #555;
-    --figure-bg: #111;
-    --figure-shadow: rgba(0, 0, 0, 0.7);
-    --caption-color: #aaa;
-    --blue-color: #fff;
-    --primary-color: #ff7f50;
-    --secondary-color: #ffa500;
+    --bg-color: #001f3f; /* Darker blue background */
+    --text-color: #cceeff; /* Light blue text */
+    --shadow-color: rgba(0, 0, 100, 0.6);
+    --hover-shadow-color: rgba(0, 0, 100, 0.8);
+    --filter-tag-bg: #003366; /* Dark blue tags */
+    --filter-tag-hover: #005577;
+    --figure-bg: #000033; /* Very dark blue for figures */
+    --figure-shadow: rgba(0, 0, 50, 0.7);
+    --caption-color: #66ccff; /* Light blue captions */
+    --blue-color: #66ccff; /* Lighter blue for buttons/links in dark mode */
+    --primary-color: #01579b; /* Dark blue */
+    --secondary-color: #4fc3f7; /* Lighter blue accent in dark mode */
   }
 
   *:focus { outline: none; box-shadow: none; }
@@ -64,7 +64,7 @@
     width: 100%; height: 100%;
   }
 
-  /* Sidebar styles updated: fixed position and relative container for logo */
+  /* Sidebar styles */
   #sidebar {
     position: fixed; /* fixed for persistent sidebar */
     top: 0;
@@ -86,7 +86,7 @@
     border-radius: 3px;
   }
 
-  /* Additional style to position the logo at the bottom of sidebar */
+  /* Logo bottom container */
   #sidebar-bottom-logo {
     position: absolute; /* absolute within fixed sidebar */
     bottom: 20px;
@@ -100,7 +100,7 @@
     top: 80%; /* moved further down */
     left: 0;
     transform: translateY(-50%);
-    background-color: #ff7f50; /* primary color */
+    background-color: var(--primary-color);
     color: #fff;
     padding: 10px 15px;
     border-radius: 0 4px 4px 0;
@@ -112,17 +112,13 @@
     transition: background-color 0.3s;
   }
   #side-toggle:hover {
-    background-color: #ff6347; /* darker on hover */
+    background-color: var(--secondary-color);
   }
 
-  /* Rest of styles */
-  #mode-toggle {
-    display: none; /* hidden, as we now use side toggle tab */
-  }
-
+  /* Search input styles */
   #sidebar input[type="search"] {
     margin-top: 15px;
-    margin-bottom: 20px; /* increased spacing */
+    margin-bottom: 20px;
     width: 100%; padding: 10px 15px; border-radius: 20px;
     border: 1px solid #555; font-family: 'Ubuntu'; font-size: 14px; background: transparent; color: var(--text-color); transition: box-shadow 0.3s, border-color 0.3s;
   }
@@ -131,14 +127,7 @@
     border-color: var(--primary-color);
   }
 
-  #categoriesContainer {
-    display: none; /* Hidden */
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    margin-top: 20px;
-  }
-
+  /* Category buttons styling */
   .category-btn {
     padding: 10px;
     width: 100%;
@@ -159,8 +148,9 @@
     transform: translateY(-2px);
   }
 
+  /* Main content styles */
   #content {
-    margin-left: 160px; /* same as sidebar width */
+    margin-left: 160px;
     padding: 30px 20px;
     flex: 1;
     transition: margin-left 0.3s;
@@ -175,6 +165,7 @@
     }
   }
 
+  /* Figures grid styles */
   #figures {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px;
   }
@@ -207,6 +198,7 @@
     display: block;
   }
 
+  /* Back to Top button styles */
   #backToTop {
     position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
     background: var(--primary-color); color: #fff; border: none; border-radius: 50%;
@@ -218,10 +210,11 @@
     opacity: 0; pointer-events: none;
   }
   #backToTop:hover {
-    background: #ffa500;
+    background: var(--secondary-color);
     transform: scale(1.1);
   }
 
+  /* About button styles */
   #aboutButton {
     margin-bottom: 10px;
     padding: 8px 12px;
@@ -239,6 +232,7 @@
     color: #fff;
   }
 
+  /* About modal styling */
   #aboutModal {
     display: none;
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -287,19 +281,18 @@
     cursor: pointer;
   }
 
-  /* Additional CSS for truncating favorites list text properly on mobile */
+  /* Responsive truncation for mobile favorites list */
   #favoritesList div span {
     display: inline-block;
-    max-width: calc(100% - 40px); /* leave space for star button */
+    max-width: calc(100% - 40px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
   @media(max-width: 768px) {
     #favoritesList div span {
       max-width: calc(100% - 40px);
-      font-size: 0.75em; /* Smaller font for mobile */
+      font-size: 0.75em;
     }
   }
 </style>
@@ -314,10 +307,10 @@
 <canvas id="globeBackground"></canvas>
 
 <!-- Main content -->
-<div id="mainContent" style="opacity:0; pointer-events:none;"> <!-- Hidden initially with opacity -->
+<div id="mainContent" style="opacity:0; pointer-events:none;"> 
 
 <!-- Side toggle tab further down -->
-<button id="side-toggle" title="Toggle Light/Dark Mode">☀️</button>
+<button id="side-toggle" title="Toggle Light/Dark Mode">🌊</button>
 
 <!-- Sidebar -->
 <div id="sidebar">
@@ -336,7 +329,6 @@
   <!-- Fixed bottom logo container with social media handle -->
   <div id="sidebar-bottom-logo" style="position: absolute; bottom: 20px; width: 100%; text-align: center;">
     <img src="https://i.postimg.cc/jWdg8V4d/anonymous.png" alt="Created by ERGO" style="max-width:50px; height:auto; border-radius:8px; cursor:pointer;">
-    <!-- Smaller social media tag -->
     <p style="margin-top:8px; font-size:0.75em; color: var(--caption-color); line-height: 1.2;">
       <a href="https://bsky.app/profile/zanocash.bsky.social" target="_blank" style="color: var(--primary-color); text-decoration:underline;">@zanocash.bsky.social</a>
     </p>
@@ -389,7 +381,7 @@
     renderer.setPixelRatio(window.devicePixelRatio);
 
     const geometry = new THREE.SphereGeometry(0.9, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ color: 0x888888, wireframe: true });
+    const material = new THREE.MeshBasicMaterial({ color: 0x8888ff, wireframe: true });
     sphereMesh = new THREE.Mesh(geometry, material);
     scene.add(sphereMesh);
 
@@ -588,23 +580,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script>
 window.onload = () => {
-  // your existing onload code...
+  // existing onload code...
   const mainContent = document.getElementById('mainContent');
   mainContent.style.opacity = '1';
   mainContent.style.pointerEvents = 'auto';
 
   const sideToggle = document.getElementById('side-toggle');
+  // Set initial theme to dark mode
   document.body.classList.add('dark-mode');
-  sideToggle.innerText = '☀️';
+  sideToggle.innerText = '🌊'; // Wave icon for dark theme
 
   loadFavorites();
 
   sideToggle.onclick = () => {
     document.body.classList.toggle('dark-mode');
     if (document.body.classList.contains('dark-mode')) {
-      sideToggle.innerText = '☀️';
+      sideToggle.innerText = '🌊'; // Wave icon for dark
     } else {
-      sideToggle.innerText = '🌙';
+      sideToggle.innerText = '☀️'; // Sun icon for light
     }
   };
 
